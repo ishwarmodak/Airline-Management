@@ -7,9 +7,11 @@ class CityRepository {
             return city;
 
         } catch(error) {
+            console.log("Something went wrong at repository layer");
             throw { error };
         }
     }
+
     async deleteCity({ cityId }) {
         try {
             await City.destroy({
@@ -17,7 +19,31 @@ class CityRepository {
                     id : cityId
                 }
             });
+            return true;
         } catch(error) {
+            console.log("Something went wrong at repository layer");
+            throw { error };
+        }
+    }
+
+    async updateCity(cityId, data) {
+        try {
+            const city = await City.update(data, {
+                id: cityId
+            });
+            return city;
+        } catch (error) {
+            console.log("Something went wrong at repository layer");
+            throw { error };
+        }
+    }
+
+    async getCity(cityId) {
+        try {
+            const city = await City.findByPk(cityId);
+            return city;
+        } catch (error) {
+            console.log("Something went wrong at repository layer");
             throw { error };
         }
     }
