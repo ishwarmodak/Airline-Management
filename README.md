@@ -1,4 +1,6 @@
 # Welcome to Flights Service
+### This is a Microservice is of Airline Management System.
+Following are the other services [ReminderService](https://github.com/aryan-bhokare/ReminderService), [AirlineBookingService](https://github.com/aryan-bhokare/AirlineBookingService), [Auth-service](https://github.com/aryan-bhokare/Auth-service)
 
 ## Project Setup
 - clone the project on your local
