@@ -1,5 +1,7 @@
 # Welcome to Flights Service
 ### This is a Microservice is of Airline Management System.
+
+## 🔗 Links
 Following are the other services [ReminderService](https://github.com/aryan-bhokare/ReminderService), [AirlineBookingService](https://github.com/aryan-bhokare/AirlineBookingService), [Auth-service](https://github.com/aryan-bhokare/Auth-service)
 
 ## Project Setup
@@ -8,6 +10,57 @@ Following are the other services [ReminderService](https://github.com/aryan-bhok
 - Create a `.env` file in the root directory and add the following environment variable
     - `PORT=3000`
 - Inside the `src/config` folder create a new file `config.json` and then add the following piece of json
+
+## Project Structure
+
+```
+.
+├── README.md
+├── main
+├── package-lock.json
+├── package.json
+└── src
+    ├── config
+    │   ├── config.json
+    │   └── serverConfig.js
+    ├── controllers
+    │   ├── airport-controller.js
+    │   ├── city-controller.js
+    │   └── flight-controller.js
+    ├── index.js
+    ├── middlewares
+    │   ├── flight-middlewares.js
+    │   └── index.js
+    ├── migrations
+    ├── models
+    │   ├── airplane.js
+    │   ├── airport.js
+    │   ├── city.js
+    │   ├── flights.js
+    │   └── index.js
+    ├── repository
+    │   ├── airplane-repository.js
+    │   ├── airport-respository.js
+    │   ├── city-repository.js
+    │   ├── crud-repository.js
+    │   ├── flight-repository.js
+    │   └── index.js
+    ├── routes
+    │   ├── index.js
+    │   └── v1
+    │       └── index.js
+    ├── seeders
+    ├── services
+    │   ├── airport-service.js
+    │   ├── city-service.js
+    │   ├── crud-service.js
+    │   ├── flight-service.js
+    │   └── index.js
+    └── utils
+        ├── error-codes.js
+        └── helper.js
+
+```
 
 ```
 {
@@ -25,15 +78,13 @@ Following are the other services [ReminderService](https://github.com/aryan-bhok
 and then execute
 
 `npx sequelize db:migrate`
+
 ```
-
-
 ## DB Design
   - Airplane Table
   - Flight
   - Airport
   - City 
-
   - A flight belongs to an airplane but one airplane can be used in multiple flights
   - A city has many airports but one airport belongs to a city
   - One airport can have many flights, but a flight belongs to one airport
@@ -42,8 +93,11 @@ and then execute
 
 ### City -> id, name, created_at, updated_at
 ### Airport -> id, name, address, city_id, created_at, updated_at
-    Relationship -> City has many airports  and Airport belongs to one city (one to many)
+### Relationship -> City has many airports  and Airport belongs to one city (one to many)
 
 ```
-npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
+
+## Model Generation Code Sequelize
+```
+    npx sequelize model:generate --name Airport --attributes name:String,address:String,cityId:integer
 ```
